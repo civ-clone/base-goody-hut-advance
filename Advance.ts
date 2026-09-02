@@ -8,8 +8,8 @@ import ScienceAdvance from '@civ-clone/core-science/Advance';
 import Unit from '@civ-clone/core-unit/Unit';
 
 export class Advance extends Action {
-  #playerResearchRegistry: PlayerResearchRegistry;
-  #randomNumberGenerator: () => number;
+  private _playerResearchRegistry: PlayerResearchRegistry;
+  private _randomNumberGenerator: () => number;
 
   constructor(
     goodyHut: GoodyHut,
@@ -19,18 +19,18 @@ export class Advance extends Action {
   ) {
     super(goodyHut, unit);
 
-    this.#playerResearchRegistry = playerResearchRegistry;
-    this.#randomNumberGenerator = randomNumberGenerator;
+    this._playerResearchRegistry = playerResearchRegistry;
+    this._randomNumberGenerator = randomNumberGenerator;
   }
 
   perform(): void {
-    const playerResearch = this.#playerResearchRegistry.getByPlayer(
+    const playerResearch = this._playerResearchRegistry.getByPlayer(
         this.unit().player()
       ),
       availableResearch = playerResearch.available(),
       RandomAdvance: typeof ScienceAdvance =
         availableResearch[
-          Math.floor(availableResearch.length * this.#randomNumberGenerator())
+          Math.floor(availableResearch.length * this._randomNumberGenerator())
         ];
     playerResearch.addAdvance(RandomAdvance);
   }

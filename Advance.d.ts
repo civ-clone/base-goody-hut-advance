@@ -3,7 +3,8 @@ import Action from '@civ-clone/core-goody-hut/Action';
 import GoodyHut from '@civ-clone/core-goody-hut/GoodyHut';
 import Unit from '@civ-clone/core-unit/Unit';
 export declare class Advance extends Action {
-  #private;
+  private _playerResearchRegistry;
+  private _randomNumberGenerator;
   constructor(
     goodyHut: GoodyHut,
     unit: Unit,

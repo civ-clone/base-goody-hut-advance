@@ -3,8 +3,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Advance = void 0;
 const PlayerResearchRegistry_1 = require("@civ-clone/core-science/PlayerResearchRegistry");
 const Action_1 = require("@civ-clone/core-goody-hut/Action");
+const core_random_1 = require("@civ-clone/core-random");
 class Advance extends Action_1.default {
-    constructor(goodyHut, unit, playerResearchRegistry = PlayerResearchRegistry_1.instance, randomNumberGenerator = () => Math.random()) {
+    constructor(goodyHut, unit, playerResearchRegistry = PlayerResearchRegistry_1.instance, randomNumberGenerator = core_random_1.instance) {
         super(goodyHut, unit);
         this._playerResearchRegistry = playerResearchRegistry;
         this._randomNumberGenerator = randomNumberGenerator;

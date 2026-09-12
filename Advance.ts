@@ -6,6 +6,7 @@ import Action from '@civ-clone/core-goody-hut/Action';
 import GoodyHut from '@civ-clone/core-goody-hut/GoodyHut';
 import ScienceAdvance from '@civ-clone/core-science/Advance';
 import Unit from '@civ-clone/core-unit/Unit';
+import { instance as rngInstance } from '@civ-clone/core-random';
 
 export class Advance extends Action {
   private _playerResearchRegistry: PlayerResearchRegistry;
@@ -15,7 +16,7 @@ export class Advance extends Action {
     goodyHut: GoodyHut,
     unit: Unit,
     playerResearchRegistry: PlayerResearchRegistry = playerResearchRegistryInstance,
-    randomNumberGenerator: () => number = () => Math.random()
+    randomNumberGenerator: () => number = rngInstance
   ) {
     super(goodyHut, unit);
 

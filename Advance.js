@@ -16,5 +16,9 @@ class Advance extends Action_1.default {
     }
 }
 exports.Advance = Advance;
+Advance.transient = [
+    '_playerResearchRegistry',
+    '_randomNumberGenerator',
+];
 exports.default = Advance;
 //# sourceMappingURL=Advance.js.map

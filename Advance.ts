@@ -9,6 +9,10 @@ import Unit from '@civ-clone/core-unit/Unit';
 import { instance as rngInstance } from '@civ-clone/core-random';
 
 export class Advance extends Action {
+  static readonly transient = [
+    '_playerResearchRegistry',
+    '_randomNumberGenerator',
+  ];
   private _playerResearchRegistry: PlayerResearchRegistry;
   private _randomNumberGenerator: () => number;
 
